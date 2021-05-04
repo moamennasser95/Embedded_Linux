@@ -4,7 +4,8 @@ from rclpy.node import Node
 from example_interfaces.msg import Int64
 from example_interfaces.srv import SetBool
 
-# int   + - * / =  ( law ha5od data bas b2ol .data )
+
+# int   +* /  - =  ( law ha5od data bas b2ol .data )
 # str   print      ( law hatba3 7aga b7otaha gowa str(..))
 
 # INT64    ( send / publish / subscribe )  (variable).data
@@ -29,11 +30,11 @@ class My_Server(Node):
     def timer_call(self, msg):
 
         self.NUM += msg.data
-        self.get_logger().info(str(self.NUM))
+        self.get_logger().info(str(self.NUM))  # Sub
 
         pub_int = Int64()
-        pub_int.data = self.NUM
-        self.pub_num.publish(pub_int) 
+        pub_int.data = self.NUM # 5 10 15 20 25
+        self.pub_num.publish(pub_int)     # pub
         
         # [ publish() ] function is in file publisher.py
 

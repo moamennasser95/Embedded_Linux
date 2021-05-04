@@ -15,15 +15,12 @@ class Turtle_Client(Node):
         self.client = self.create_client(Empty,"/reset")
 
         while self.client.wait_for_service(1)==False:
-            # wait_for_service()  is in file client.py      
             self.get_logger().warn("wating for server")
 
         self.request = Empty.Request()
-        #self.request = data_msg                # ( we will send this object to server )
 
         self.future = self.client.call_async(self.request)
-        # call_async() is in file (client.py)
-        # future have NULL by default so won't give any error
+
 
 
 def main (args=None):
